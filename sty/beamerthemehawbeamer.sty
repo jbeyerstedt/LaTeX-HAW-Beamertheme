@@ -10,6 +10,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{pgfopts}
 
+
 % Config Commands
 \newcommand{\faculty}[1]{\newcommand{\Ifaculty}{#1}}
 \newcommand{\footerinfo}[1]{\newcommand{\Ifooterinfo}{#1}}
@@ -32,6 +33,13 @@
 \setbeamertemplate{frame numbering}[counter]
 
 \setbeamertemplate{section page}[simple]
+
+\hawbeamer@enablesectionpage
+% \hawbeamer@disablesectionpage
+
+% \hawbeamer@enablesubsectionpage
+\hawbeamer@disablesubsectionpage
+
 
 
 % Additional Commands

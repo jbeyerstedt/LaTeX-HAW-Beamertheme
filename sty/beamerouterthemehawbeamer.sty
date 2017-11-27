@@ -50,7 +50,7 @@
       \usebeamerfont{footline}
       \usebeamercolor{footline}
       \usebeamertemplate*{frame footer}
-      \vspace{0.3em}
+      \vspace{0.5em}
 
       \begin{tikzpicture}[remember picture, overlay]
         \node[at=(current page.south east), anchor=south east, inner sep=0] {
@@ -114,6 +114,52 @@
 \setbeamertemplate{date}{
   \insertdate%
   \par%
+}
+
+
+\defbeamertemplate{section page}{simple}{
+  \begin{center}
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \insertsectionhead\par
+    \ifx\insertsubsectionhead\@empty\else
+      \usebeamercolor[fg]{subsection title}
+      \usebeamerfont{subsection title}
+      \insertsubsectionhead
+    \fi
+  \end{center}
+}
+\newcommand{\hawbeamer@disablesectionpage}{
+  \AtBeginSection{
+    % intentionally empty
+  }
+}
+\newcommand{\hawbeamer@enablesectionpage}{
+  \AtBeginSection{
+    \ifbeamer@inframe
+      \sectionpage
+    \else
+      \frame[plain,c,noframenumbering]{\sectionpage}
+    \fi
+  }
+}
+
+\setbeamertemplate{subsection page}{%
+  \usebeamertemplate*{section page}
+}
+\newcommand{\hawbeamer@disablesubsectionpage}{
+  \AtBeginSubsection{
+    % intentionally empty
+  }
+}
+\newcommand{\hawbeamer@enablesubsectionpage}{
+  \AtBeginSubsection{
+    \ifbeamer@inframe
+      \subsectionpage
+    \else
+      \frame[plain,c,noframenumbering]{\subsectionpage}
+    \fi
+  }
 }
 
 

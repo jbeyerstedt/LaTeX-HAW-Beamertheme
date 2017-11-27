@@ -13,57 +13,6 @@
 \RequirePackage{tikz}
 
 
-% \metropolis@enablesubsectionpage
-% \metropolis@disablesubsectionpage
-% \metropolis@enablesectionpage
-% \metropolis@disablesectionpage
-
-
-\defbeamertemplate{section page}{simple}{
-  \begin{center}
-    \usebeamercolor[fg]{section title}
-    \usebeamerfont{section title}
-    \insertsectionhead\par
-    \ifx\insertsubsectionhead\@empty\else
-      \usebeamercolor[fg]{subsection title}
-      \usebeamerfont{subsection title}
-      \insertsubsectionhead
-    \fi
-  \end{center}
-}
-\newcommand{\metropolis@disablesectionpage}{
-  \AtBeginSection{
-    % intentionally empty
-  }
-}
-\newcommand{\metropolis@enablesectionpage}{
-  \AtBeginSection{
-    \ifbeamer@inframe
-      \sectionpage
-    \else
-      \frame[plain,c,noframenumbering]{\sectionpage}
-    \fi
-  }
-}
-
-\setbeamertemplate{subsection page}{%
-  \usebeamertemplate*{section page}
-}
-\newcommand{\metropolis@disablesubsectionpage}{
-  \AtBeginSubsection{
-    % intentionally empty
-  }
-}
-\newcommand{\metropolis@enablesubsectionpage}{
-  \AtBeginSubsection{
-    \ifbeamer@inframe
-      \subsectionpage
-    \else
-      \frame[plain,c,noframenumbering]{\subsectionpage}
-    \fi
-  }
-}
-
 \def\inserttotalframenumber{100}
 \newlength{\metropolis@blocksep}
 \newlength{\metropolis@blockadjust}

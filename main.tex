@@ -1,33 +1,32 @@
 \documentclass{beamer}
-%
-% Choose how your presentation looks.
-%
-% For more themes, color themes and font themes, see:
-% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
-%
+
+\usetheme{hawbeamer}
+\usepackage{hawbeamerstyle}
+
+% MANUAL HYPHENATION (whitespace separated items)
+\hyphenation{Prescaler}
+
+% CUSTOM UNITS
+\sisetup{locale = DE}
+
+
+%--------------------------------------------------------------------
+% DOCUMENT
+%--------------------------------------------------------------------
 \mode<presentation>
-{
-  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
-  \usecolortheme{default} % or try albatross, beaver, crane, ...
-  \usefonttheme{default}  % or try serif, structurebold, ...
-  \setbeamertemplate{navigation symbols}{}
-  \setbeamertemplate{caption}[numbered]
-} 
+\begin{document}
 
-\usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
-
-\title[Your Short Title]{Your Presentation}
+%% ------------------------- TITLE PAGE -------------------------- %%
+\title[HAW Hamburg Beamer]{Titel der Präsentation}
 \author{You}
 \institute{Where You're From}
 \date{Date of Presentation}
-
-\begin{document}
 
 \begin{frame}
   \titlepage
 \end{frame}
 
+%% --------------------------- SLIDES ---------------------------- %%
 % Uncomment these lines for an automatically generated outline.
 %\begin{frame}{Outline}
 %  \tableofcontents

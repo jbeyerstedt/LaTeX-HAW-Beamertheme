@@ -1,24 +1,37 @@
 % !TEX root = ./main.tex
 %
-% Theme File for beamer presentations in the computer science department
-% at Hochschule für angewandte Wissenschaften Hamburg
-% Maintainer:
-% Jannik Beyerstedt
+% Theme File for Beamer Presentations inspired by the 2017 Corporate Design
+% at Hochschule für Angewandte Wissenschaften Hamburg
+% Author: Jannik Beyerstedt
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{beamerthemehawbeamer}
 
-% Requirements
 \RequirePackage{etoolbox}
 \RequirePackage{pgfopts}
+
+% Config Commands
+\newcommand{\faculty}[1]{\newcommand{\Ifaculty}{#1}}
+\newcommand{\footerinfo}[1]{\newcommand{\Ifooterinfo}{#1}}
+
+% Resize pages to a4paper
+\RequirePackage{pgfpages}
+\pgfpagesuselayout{resize to}[a4paper,border shrink=5mm,landscape]
 
 % Settings
 \useinnertheme{hawbeamer}
 \useoutertheme{hawbeamer}
 \usecolortheme{hawbeamer}
+\usefonttheme{hawbeamer}
 
-% \setbeamertemplate{navigation symbols}{}
-% \setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{headline}[plain]
+\setbeamertemplate{frametitle}[plain]
+
+\setbeamertemplate{footline}[plain]
+\setbeamertemplate{frame footer}[hawcd]
+\setbeamertemplate{frame numbering}[counter]
+
+\setbeamertemplate{section page}[simple]
 
 
 % Additional Commands

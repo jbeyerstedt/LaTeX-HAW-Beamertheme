@@ -37,11 +37,13 @@
   %% Text
   \setbeamercolor{normal text}{fg=hawbeamer@black, bg=hawbeamer@white}
   \setbeamercolor{structure}{fg=hawbeamer@black, bg=hawbeamer@white}
-  \setbeamercolor{alerted text}{fg=red}
+  \setbeamercolor{alerted text}{fg=hawbeamer@midblue}
+
   \addtobeamertemplate{block begin}{%
     \ifhawbeamer@dark\else % alerted text in plain blocks at light slides
       \setbeamercolor{alerted text}{fg=hawbeamer@darkRed}
-    \fi}{}
+    \fi
+  }{}
 
   %% Items and links
   \setbeamercolor{item}{fg=hawbeamer@blue}
@@ -62,6 +64,10 @@
   \setbeamercolor{title}{fg=hawbeamer@blue, bg=hawbeamer@white}
   \setbeamercolor{subtitle}{fg=hawbeamer@blue, bg=hawbeamer@white}
   \setbeamercolor{author}{fg=hawbeamer@black, bg=hawbeamer@white}
+
+  %% Footline
+  \setbeamercolor{footline}{fg=hawbeamer@blue}
+  \setbeamercolor{page number in head/foot}{fg=hawbeamer@black}
 
   % Code listings
   % \lstset{%

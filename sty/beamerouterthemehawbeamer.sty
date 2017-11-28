@@ -21,12 +21,13 @@
 \newlength{\hawbeamer@footlineseperator@linewidth}
 \setlength{\hawbeamer@footlineseperator@linewidth}{1pt}
 
-\setbeamersize{text margin left = 2mm}
+\setbeamersize{text margin left = 1mm}
 
 
 \setbeamertemplate{navigation symbols}{}
+
 \defbeamertemplate{frame footer}{none}{}
-\defbeamertemplate{frame footer}{hawcd}{
+\defbeamertemplate{frame footer}{haw_cd2017}{
   \begin{tikzpicture}
     \fill[hawbeamer@lightGray] (0,0) rectangle (\textwidth, \hawbeamer@footlineseperator@linewidth);
   \end{tikzpicture}%
@@ -65,6 +66,27 @@
   \end{beamercolorbox}%
 }
 
+\newlength{\hawbeamer@frametitle@padding}
+\setlength{\hawbeamer@frametitle@padding}{1ex}
+\newcommand{\hawbeamer@frametitlestrut@start}{
+  \rule{0pt}{\hawbeamer@frametitle@padding + \totalheightof{{X}} }
+}
+\newcommand{\hawbeamer@frametitlestrut@end}{
+  \rule[-\hawbeamer@frametitle@padding]{0pt}{\hawbeamer@frametitle@padding}
+}
+\defbeamertemplate{frametitle}{plain}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0pt]{frametitle}%
+    \hawbeamer@frametitlestrut@start%
+    \insertframetitle%
+    \nolinebreak%
+    \hawbeamer@frametitlestrut@end%
+  \end{beamercolorbox}%
+}
+\setbeamertemplate{frametitle continuation}{%
+  \usebeamerfont{frametitle}
+  \romannumeral \insertcontinuationcount
+}
 
 \setbeamertemplate{title page}{
   \setcounter{framenumber}{0}   % needed for slide numbering
@@ -84,17 +106,6 @@
       \includegraphics[height=\hawbeamer@lengths@logoheight]{logo-haw-2017}};
   \end{tikzpicture}
 }
-\def\maketitle{%
-  \ifbeamer@inframe
-    \titlepage
-  \else
-    \frame[plain,noframenumbering]{\titlepage}
-  \fi
-}
-\def\titlepage{%
-  \usebeamertemplate{title page}
-}
-
 \setbeamertemplate{title}{
   \raggedright%
   \linespread{1.0}%
@@ -120,7 +131,6 @@
   \insertdate%
   \par%
 }
-
 
 \defbeamertemplate{section page}{simple}{
   \begin{center}
@@ -167,32 +177,6 @@
       \frame[plain,c]{\subsectionpage}
     \fi
   }
-}
-
-
-\newlength{\hawbeamer@frametitle@padding}
-\setlength{\hawbeamer@frametitle@padding}{1ex}
-\newcommand{\hawbeamer@frametitlestrut@start}{
-  \rule{0pt}{\hawbeamer@frametitle@padding + \totalheightof{{X}} }
-}
-\newcommand{\hawbeamer@frametitlestrut@end}{
-  \rule[-\hawbeamer@frametitle@padding]{0pt}{\hawbeamer@frametitle@padding}
-}
-\defbeamertemplate{frametitle}{plain}{%
-  \nointerlineskip%
-  \begin{beamercolorbox}[%
-      wd=\paperwidth,%
-      sep=0pt,%
-    ]{frametitle}%
-    \hawbeamer@frametitlestrut@start%
-    \insertframetitle%
-    \nolinebreak%
-    \hawbeamer@frametitlestrut@end%
-  \end{beamercolorbox}%
-}
-\setbeamertemplate{frametitle continuation}{%
-  \usebeamerfont{frametitle}
-  \romannumeral \insertcontinuationcount
 }
 
 

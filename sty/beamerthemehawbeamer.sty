@@ -32,7 +32,7 @@
 \setbeamertemplate{frametitle}[plain]
 
 \setbeamertemplate{footline}[plain]
-\setbeamertemplate{frame footer}[hawcd]
+\setbeamertemplate{frame footer}[haw_cd2017]
 \setbeamertemplate{frame numbering}[counter]
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -50,6 +50,17 @@
 
 % Additional Commands
 \newcommand{\mreducelistspacing}{\vspace{-\topsep}}
+
+\def\maketitle{%
+  \ifbeamer@inframe
+    \titlepage
+  \else
+    \frame[plain,noframenumbering]{\titlepage}
+  \fi
+}
+\def\titlepage{%
+  \usebeamertemplate{title page}
+}
 
 
 \endinput

@@ -28,6 +28,15 @@
 }
 
 
+\setbeamertemplate{itemize items}{\textbullet}
+\setbeamertemplate{caption label separator}{: }
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{footnote}{%
+  \parindent 0em\noindent%
+  \raggedright
+  \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
 \def\inserttotalframenumber{100}
 \newlength{\hawbeamer@blocksep}
 \newlength{\hawbeamer@blockadjust}
@@ -73,15 +82,6 @@
 \setbeamertemplate{block end}{\end{beamercolorbox}\vspace*{0.2ex}}
 \setbeamertemplate{block alerted end}{\end{beamercolorbox}\vspace*{0.2ex}}
 \setbeamertemplate{block example end}{\end{beamercolorbox}\vspace*{0.2ex}}
-
-\setbeamertemplate{itemize items}{\textbullet}
-\setbeamertemplate{caption label separator}{: }
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{footnote}{%
-  \parindent 0em\noindent%
-  \raggedright
-  \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
-}
 
 
 \endinput

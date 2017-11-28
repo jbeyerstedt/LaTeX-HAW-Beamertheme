@@ -1,28 +1,30 @@
+% !TEX root = ../main.tex
 %
-% Style File for beamer presentations in the computer science department
-% at Hochschule für angewandte Wissenschaften Hamburg
-% Maintainer:
-% Jannik Beyerstedt
+% Style File for Beamer Presentations inspired by the 2017 Corporate Design
+% at Hochschule für Angewandte Wissenschaften Hamburg
+% - Author: Jannik Beyerstedt
+% - License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+% - some parts used from https://github.com/matze/mtheme
 %
 \ProvidesPackage{hawbeamerstyle}
 
 \RequirePackage[utf8]{inputenc}     % Universal encoding
 \RequirePackage[ngerman]{babel}     % New german language
-\RequirePackage[T1]{fontenc}        % Font
-\RequirePackage{url}                % Line break support in URL
-\RequirePackage{siunitx}            % SI-Unit support
+\RequirePackage[T1]{fontenc}
+
 \RequirePackage[default,osfigures,scale=0.95]{opensans} % font: open sans
 \RequirePackage{courier}            % Courier as \ttdefault
 
-\RequirePackage{listing}            % Computer listings
+\RequirePackage{graphicx}           % Include graphics to document
+\RequirePackage{url}                % Line break support in URL
+\RequirePackage[round]{natbib}      % More citation styles
+
+\RequirePackage{listing}            % Code listings
 \RequirePackage{xcolor}             % Colored text
 
 \RequirePackage{amsmath}            % Math
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
+\RequirePackage{siunitx}            % SI-Unit support
 
-\RequirePackage{graphicx}           % Include graphics to document
-\RequirePackage{subcaption}         % Multiple Pictures next to each other
-\RequirePackage[round]{natbib}      % More citation styles
 \parindent0pt                       % First line starts imediately
-\RequirePackage{todonotes}          % Adds notes on marginpar (can lead to warnings!)

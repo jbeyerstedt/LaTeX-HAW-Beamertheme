@@ -9,6 +9,10 @@
 
 \usetheme{hawbeamer}
 \usepackage{-settings/hawbeamerstyle}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
 
 % MANUAL HYPHENATION (whitespace separated items)
 \hyphenation{}
@@ -44,10 +48,7 @@
 
 \section{Introduction}
 \begin{frame}{Introduction}
-  DAS MUSS ALLES IRGENDWIE BREITER. UND WEITER OBEN UND KLEINER.
-  TODO: Eigene Seitenzahlen für die Section Start Folien (wegen PDF)?
-  TODO: Author, Titel im PDF
-
+  TODO: DAS MUSS ALLES IRGENDWIE BREITER
 
   Hier steht Lauftext. Begriffe können \emph{hervorgehoben werden}, der Beamer-Standard ist jedoch \alert{etwas wichtiges}.
 
@@ -58,6 +59,31 @@
   \end{itemize}
 
   Hier steht dann noch ein Absatz.
+
+  foo
+
+  bar
+
+  foobar
+\end{frame}
+
+\begin{frame}{Introduction2}
+  \begin{block}{Default}
+    Block content.
+  \end{block}
+  \begin{alertblock}{Alert}
+    Block content.
+  \end{alertblock}
+  \begin{exampleblock}{Example}
+    Block content.
+  \end{exampleblock}
+  \begin{example}
+    \begin{itemize}
+      \item 2 is prime (two divisors: 1 and 2).
+      \item 3 is prime (two divisors: 1 and 3).
+      \item 4 is not prime (\alert{three} divisors: 1, 2, and 4).
+    \end{itemize}
+  \end{example}
 \end{frame}
 
 

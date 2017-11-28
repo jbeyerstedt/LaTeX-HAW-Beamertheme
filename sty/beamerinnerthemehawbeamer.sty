@@ -16,51 +16,56 @@
 
 
 \def\inserttotalframenumber{100}
-\newlength{\metropolis@blocksep}
-\newlength{\metropolis@blockadjust}
-\setlength{\metropolis@blocksep}{0.75ex}
-\setlength{\metropolis@blockadjust}{0.25ex}
-\providecommand{\metropolis@strut}{%
+\newlength{\hawbeamer@blocksep}
+\newlength{\hawbeamer@blockadjust}
+\setlength{\hawbeamer@blocksep}{0.75ex}
+\setlength{\hawbeamer@blockadjust}{0.25ex}
+\providecommand{\hawbeamer@strut}{%
   \vphantom{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()}%
 }
-\newcommand{\metropolis@block}[1]{
+\newcommand{\hawbeamer@block}[1]{
   \par\vskip\medskipamount%
   \setlength{\parskip}{0pt}
   \ifbeamercolorempty[bg]{block title#1}{%
-    \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}}{%
-  \ifbeamercolorempty[bg]{block title}{%
-    \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}%
+    \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}
+  }{%
+    \ifbeamercolorempty[bg]{block title}{%
+      \begin{beamercolorbox}[rightskip=0pt plus 4em]{block title#1}%
+    }{%
+      \begin{beamercolorbox}[
+        sep=\dimexpr\hawbeamer@blocksep-\hawbeamer@blockadjust\relax,
+        leftskip=\hawbeamer@blockadjust,
+        rightskip=\dimexpr\hawbeamer@blockadjust plus 4em\relax
+      ]{block title#1}%
+    }
   }%
-  {%
-    \begin{beamercolorbox}[
-      sep=\dimexpr\metropolis@blocksep-\metropolis@blockadjust\relax,
-      leftskip=\metropolis@blockadjust,
-      rightskip=\dimexpr\metropolis@blockadjust plus 4em\relax
-    ]{block title#1}%
-  }}%
-      \usebeamerfont*{block title#1}%
-      \metropolis@strut%
-      \insertblocktitle%
-      \metropolis@strut%
+    \usebeamerfont*{block title#1}%
+    \hawbeamer@strut%
+    \insertblocktitle%
+    \hawbeamer@strut%
   \end{beamercolorbox}%
   \nointerlineskip%
   \ifbeamercolorempty[bg]{block body#1}{%
-    \begin{beamercolorbox}[vmode]{block body#1}}{
-  \ifbeamercolorempty[bg]{block body}{%
-    \begin{beamercolorbox}[vmode]{block body#1}%
+    \begin{beamercolorbox}[vmode]{block body#1}
   }{%
-    \begin{beamercolorbox}[sep=\metropolis@blocksep, vmode]{block body#1}%
-    \vspace{-\metropolis@parskip}
-  }}%
-      \usebeamerfont{block body#1}%
-      \setlength{\parskip}{\metropolis@parskip}%
+    \ifbeamercolorempty[bg]{block body}{%
+      \begin{beamercolorbox}[vmode]{block body#1}%
+    }{%
+      \begin{beamercolorbox}[sep=\hawbeamer@blocksep, vmode]{block body#1}%
+      \vspace{-\metropolis@parskip}
+    }
+  }%
+  \usebeamerfont{block body#1}%
+  \setlength{\parskip}{\metropolis@parskip}%
+  % end{beamercolorbox}: see beamertemplate{block end}
 }
-\setbeamertemplate{block begin}{\metropolis@block{}}
-\setbeamertemplate{block alerted begin}{\metropolis@block{ alerted}}
-\setbeamertemplate{block example begin}{\metropolis@block{ example}}
+\setbeamertemplate{block begin}{\hawbeamer@block{}}
+\setbeamertemplate{block alerted begin}{\hawbeamer@block{ alerted}}
+\setbeamertemplate{block example begin}{\hawbeamer@block{ example}}
 \setbeamertemplate{block end}{\end{beamercolorbox}\vspace*{0.2ex}}
 \setbeamertemplate{block alerted end}{\end{beamercolorbox}\vspace*{0.2ex}}
 \setbeamertemplate{block example end}{\end{beamercolorbox}\vspace*{0.2ex}}
+
 \setbeamertemplate{itemize items}{\textbullet}
 \setbeamertemplate{caption label separator}{: }
 \setbeamertemplate{caption}[numbered]
@@ -103,6 +108,12 @@
   \usebeamercolor[fg]{palette primary}
   \usebeamerfont{standout}
 }
+\apptocmd{\beamer@reseteecodes}{%
+  \ifbool{metropolis@standout}{
+    \endgroup
+    \boolfalse{metropolis@standout}
+  }{}
+}{}{}
 
 
 \endinput

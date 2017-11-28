@@ -37,26 +37,42 @@
 \setbeamercolor{structure}{fg=hawbeamer@black, bg=hawbeamer@white}
 \setbeamercolor{alerted text}{fg=hawbeamer@midblue}
 
-\addtobeamertemplate{block begin}{%
-  \ifhawbeamer@dark\else % alerted text in plain blocks at light slides
-    \setbeamercolor{alerted text}{fg=hawbeamer@darkRed}
-  \fi
-}{}
-
 %% Items and links
 \setbeamercolor{item}{fg=hawbeamer@blue}
 \setbeamercolor{footnote mark}{fg=hawbeamer@blue}
 \hypersetup{urlcolor=hawbeamer@blue}
 
 %% Blocks
-% \setbeamercolor{block title}{%
-%   fg=hawbeamer@blue, bg=hawbeamer@white}
-% \setbeamercolor{block title example}{%
-%   fg=hawbeamer@blue, bg=hawbeamer@black}
-% \setbeamercolor{block title alerted}{%
-%   fg=hawbeamer@white, bg=red}
-% \setbeamercolor{block body}{%
-%   fg=hawbeamer@white, bg=hawbeamer@black}
+\definecolor{blockLightGreen}{HTML}{14B03D}
+\setbeamercolor{example text}{fg=blockLightGreen}
+\setbeamercolor{titlelike}{use=normal text, parent=normal text}
+\setbeamercolor{palette primary}{%
+  use=normal text,
+  fg=normal text.bg,
+  bg=normal text.fg
+}
+
+\setbeamercolor{block title}{%
+  use=normal text,
+  fg=normal text.fg,
+  bg=normal text.bg!80!fg
+}
+\setbeamercolor{block body}{
+  use={block title, normal text},
+  bg=block title.bg!50!normal text.bg
+}
+\setbeamercolor{block title alerted}{%
+    use={block title, alerted text},
+    bg=block title.bg,
+    fg=alerted text.fg
+}
+\setbeamercolor{block title example}{%
+    use={block title, example text},
+    bg=block title.bg,
+    fg=example text.fg
+}
+\setbeamercolor{block body alerted}{use=block body, parent=block body}
+\setbeamercolor{block body example}{use=block body, parent=block body}
 
 %% Title
 \setbeamercolor{title}{fg=hawbeamer@blue, bg=hawbeamer@white}

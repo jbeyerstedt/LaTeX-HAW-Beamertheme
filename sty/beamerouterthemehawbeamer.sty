@@ -18,8 +18,8 @@
 \setlength\hawbeamer@lengths@logoheight{15mm}
 \newlength\hawbeamer@lengths@logoheightsmall
 \setlength\hawbeamer@lengths@logoheightsmall{10mm}
-\newlength{\hawbeamer@titleseparator@linewidth}
-\setlength{\hawbeamer@titleseparator@linewidth}{1pt}
+\newlength{\hawbeamer@footlineseperator@linewidth}
+\setlength{\hawbeamer@footlineseperator@linewidth}{1pt}
 
 
 \setbeamertemplate{navigation symbols}{}
@@ -44,7 +44,7 @@
       \par
       \vspace{2mm}
       \begin{tikzpicture}
-        \fill[hawbeamer@lightGray] (0,0) rectangle (\textwidth, \hawbeamer@titleseparator@linewidth);
+        \fill[hawbeamer@lightGray] (0,0) rectangle (\textwidth, \hawbeamer@footlineseperator@linewidth);
       \end{tikzpicture}%
       \par%
       \vspace{1.2em}
@@ -141,7 +141,8 @@
     \ifbeamer@inframe
       \sectionpage
     \else
-      \frame[plain,c,noframenumbering]{\sectionpage}
+      % \frame[plain,c,noframenumbering]{\sectionpage}
+      \frame[plain,c]{\sectionpage}
     \fi
   }
 }
@@ -159,36 +160,31 @@
     \ifbeamer@inframe
       \subsectionpage
     \else
-      \frame[plain,c,noframenumbering]{\subsectionpage}
+      % \frame[plain,c,noframenumbering]{\subsectionpage}
+      \frame[plain,c]{\subsectionpage}
     \fi
   }
 }
 
 
-\newlength{\metropolis@frametitle@padding}
-\setlength{\metropolis@frametitle@padding}{2.2ex}
-\newcommand{\metropolis@frametitlestrut@start}{
-  \rule{0pt}{\metropolis@frametitle@padding +%
-    \totalheightof{%
-      \ifcsdef{metropolis@frametitleformat}{\metropolis@frametitleformat X}{X}%
-    }%
-  }%
+\newlength{\hawbeamer@frametitle@padding}
+\setlength{\hawbeamer@frametitle@padding}{1ex}
+\newcommand{\hawbeamer@frametitlestrut@start}{
+  \rule{0pt}{\hawbeamer@frametitle@padding + \totalheightof{{X}} }
 }
-\newcommand{\metropolis@frametitlestrut@end}{
-  \rule[-\metropolis@frametitle@padding]{0pt}{\metropolis@frametitle@padding}
+\newcommand{\hawbeamer@frametitlestrut@end}{
+  \rule[-\hawbeamer@frametitle@padding]{0pt}{\hawbeamer@frametitle@padding}
 }
 \defbeamertemplate{frametitle}{plain}{%
   \nointerlineskip%
   \begin{beamercolorbox}[%
       wd=\paperwidth,%
       sep=0pt,%
-      leftskip=\metropolis@frametitle@padding,%
-      rightskip=\metropolis@frametitle@padding,%
     ]{frametitle}%
-  \metropolis@frametitlestrut@start%
-  \insertframetitle%
-  \nolinebreak%
-  \metropolis@frametitlestrut@end%
+    \hawbeamer@frametitlestrut@start%
+    \insertframetitle%
+    \nolinebreak%
+    \hawbeamer@frametitlestrut@end%
   \end{beamercolorbox}%
 }
 \setbeamertemplate{frametitle continuation}{%

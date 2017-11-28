@@ -15,14 +15,24 @@
 \RequirePackage{keyval}
 
 
+\newlength{\hawbeamer@parskip}
+\setlength{\hawbeamer@parskip}{0.5em}
+\setlength{\parskip}{\hawbeamer@parskip}
+\linespread{1.15}
+\define@key{beamerframe}{c}[true]{% centered
+  \beamer@frametopskip=0pt plus 1fill\relax%
+  \beamer@framebottomskip=0pt plus 1fill\relax%
+  \beamer@frametopskipautobreak=0pt plus .4\paperheight\relax%
+  \beamer@framebottomskipautobreak=0pt plus .6\paperheight\relax%
+  \def\beamer@initfirstlineunskip{}%
+}
+
+
 \def\inserttotalframenumber{100}
 \newlength{\hawbeamer@blocksep}
 \newlength{\hawbeamer@blockadjust}
 \setlength{\hawbeamer@blocksep}{0.75ex}
 \setlength{\hawbeamer@blockadjust}{0.25ex}
-\providecommand{\hawbeamer@strut}{%
-  \vphantom{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz()}%
-}
 \newcommand{\hawbeamer@block}[1]{
   \par\vskip\medskipamount%
   \setlength{\parskip}{0pt}
@@ -40,9 +50,7 @@
     }
   }%
     \usebeamerfont*{block title#1}%
-    \hawbeamer@strut%
     \insertblocktitle%
-    \hawbeamer@strut%
   \end{beamercolorbox}%
   \nointerlineskip%
   \ifbeamercolorempty[bg]{block body#1}{%
@@ -52,11 +60,11 @@
       \begin{beamercolorbox}[vmode]{block body#1}%
     }{%
       \begin{beamercolorbox}[sep=\hawbeamer@blocksep, vmode]{block body#1}%
-      \vspace{-\metropolis@parskip}
+      \vspace{-\hawbeamer@parskip}
     }
   }%
   \usebeamerfont{block body#1}%
-  \setlength{\parskip}{\metropolis@parskip}%
+  \setlength{\parskip}{\hawbeamer@parskip}%
   % end{beamercolorbox}: see beamertemplate{block end}
 }
 \setbeamertemplate{block begin}{\hawbeamer@block{}}
@@ -74,46 +82,6 @@
   \raggedright
   \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
 }
-
-\newlength{\metropolis@parskip}
-\setlength{\metropolis@parskip}{0.5em}
-\setlength{\parskip}{\metropolis@parskip}
-\linespread{1.15}
-\define@key{beamerframe}{c}[true]{% centered
-  \beamer@frametopskip=0pt plus 1fill\relax%
-  \beamer@framebottomskip=0pt plus 1fill\relax%
-  \beamer@frametopskipautobreak=0pt plus .4\paperheight\relax%
-  \beamer@framebottomskipautobreak=0pt plus .6\paperheight\relax%
-  \def\beamer@initfirstlineunskip{}%
-}
-
-\providebool{metropolis@standout}
-\define@key{beamerframe}{standout}[true]{%
-  \booltrue{metropolis@standout}
-  \begingroup
-    \setkeys{beamerframe}{c}
-    \setkeys{beamerframe}{noframenumbering}
-    \ifbeamercolorempty[bg]{palette primary}{
-      \setbeamercolor{background canvas}{
-        use=palette primary,
-        bg=-palette primary.fg
-      }
-    }{
-      \setbeamercolor{background canvas}{
-        use=palette primary,
-        bg=palette primary.bg
-      }
-    }
-  \centering
-  \usebeamercolor[fg]{palette primary}
-  \usebeamerfont{standout}
-}
-\apptocmd{\beamer@reseteecodes}{%
-  \ifbool{metropolis@standout}{
-    \endgroup
-    \boolfalse{metropolis@standout}
-  }{}
-}{}{}
 
 
 \endinput

@@ -17,17 +17,31 @@
 \newlength\hawbeamer@lengths@logoheight
 \setlength\hawbeamer@lengths@logoheight{15mm}
 \newlength\hawbeamer@lengths@logoheightsmall
-\setlength\hawbeamer@lengths@logoheightsmall{10mm}
+\setlength\hawbeamer@lengths@logoheightsmall{8mm}
 \newlength{\hawbeamer@footlineseperator@linewidth}
 \setlength{\hawbeamer@footlineseperator@linewidth}{1pt}
+
+\setbeamersize{text margin left = 2mm}
 
 
 \setbeamertemplate{navigation symbols}{}
 \defbeamertemplate{frame footer}{none}{}
 \defbeamertemplate{frame footer}{hawcd}{
+  \begin{tikzpicture}
+    \fill[hawbeamer@lightGray] (0,0) rectangle (\textwidth, \hawbeamer@footlineseperator@linewidth);
+  \end{tikzpicture}%
+  \par%
+  \vspace{0.8em}
+
   \Ifaculty \par
   \vspace{0.3em}
   \textmd{\tiny \insertauthor, \Ifooterinfo}
+  \vspace{0.1em}
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[at=(current page.south east), anchor=south east, inner sep=0] {
+      \includegraphics[height=\hawbeamer@lengths@logoheightsmall]{logo-haw-2017}};
+  \end{tikzpicture}
 }
 \defbeamertemplate{frame numbering}{none}{}
 \defbeamertemplate{frame numbering}{counter}{\insertframenumber}
@@ -35,29 +49,18 @@
   \insertframenumber/\inserttotalframenumber
 }
 \defbeamertemplate{headline}{plain}{}
-\defbeamertemplate*{footline}{plain}{%
-  \begin{beamercolorbox}[wd=\textwidth, ht=2.5ex, sep=0em]{footline}%
+\defbeamertemplate{footline}{plain}{%
+  \begin{beamercolorbox}[wd=\textwidth, ht=7mm, sep=0em]{footline}%
     \ifnum\c@framenumber=0\else%
       \usebeamerfont{page number in head/foot}
       \usebeamercolor{page number in head/foot}
       \hfill \usebeamertemplate*{frame numbering}
       \par
       \vspace{2mm}
-      \begin{tikzpicture}
-        \fill[hawbeamer@lightGray] (0,0) rectangle (\textwidth, \hawbeamer@footlineseperator@linewidth);
-      \end{tikzpicture}%
-      \par%
-      \vspace{1.2em}
-
       \usebeamerfont{footline}
       \usebeamercolor{footline}
-      \usebeamertemplate*{frame footer}
-      \vspace{0.5em}
 
-      \begin{tikzpicture}[remember picture, overlay]
-        \node[at=(current page.south east), anchor=south east, inner sep=0] {
-          \includegraphics[height=\hawbeamer@lengths@logoheightsmall]{logo-haw-2017}};
-      \end{tikzpicture}
+      \usebeamertemplate*{frame footer}
     \fi
   \end{beamercolorbox}%
 }

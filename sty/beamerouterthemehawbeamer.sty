@@ -28,17 +28,17 @@
 
 \defbeamertemplate{frame footer}{none}{}
 \defbeamertemplate{frame footer}{haw_cd2017}{
+  {\tiny
   \begin{tikzpicture}
     \fill[hawbeamer@lightGray] (0,0) rectangle (\textwidth, \hawbeamer@footlineseperator@linewidth);
   \end{tikzpicture}%
-  \par%
-  \vspace{0.8em}
-
+  \par }
+  %
   \Ifaculty \par
-  \vspace{0.3em}
-  \textmd{\tiny \insertauthor, \Ifooterinfo}
-  \vspace{0.1em}
-
+  \vspace{0.25em}
+  \tiny{\mdseries \insertauthor, \Ifooterinfo}
+  \vspace{0.25em}
+  %
   \begin{tikzpicture}[remember picture, overlay]
     \node[at=(current page.south east), anchor=south east, inner sep=0] {
       \includegraphics[height=\hawbeamer@lengths@logoheightsmall]{logo-haw-2017}};
@@ -53,15 +53,10 @@
 \defbeamertemplate{footline}{plain}{%
   \begin{beamercolorbox}[wd=\textwidth, ht=7mm, sep=0em]{footline}%
     \ifnum\c@framenumber=0\else%
-      \usebeamerfont{page number in head/foot}
-      \usebeamercolor{page number in head/foot}
       \hfill \usebeamertemplate*{frame numbering}
       \par
-      \vspace{2mm}
-      \usebeamerfont{footline}
-      \usebeamercolor{footline}
 
-      \usebeamertemplate*{frame footer}
+      \usebeamertemplate{frame footer}
     \fi
   \end{beamercolorbox}%
 }

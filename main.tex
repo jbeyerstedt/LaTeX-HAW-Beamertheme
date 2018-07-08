@@ -10,12 +10,30 @@
 \usetheme{hawbeamer}
 \usepackage{-settings/hawbeamerstyle}
 
+\addbibresource{literature.bib}
+
+% CUSTOM SETTINGS
+% \setcounter{tocdepth}{3}
+% \setcounter{secnumdepth}{3}
+% \usepackage{tabularx}
+% \renewcommand{\arraystretch}{1.5}   % less crammed tables
 
 % MANUAL HYPHENATION (whitespace separated items)
 \hyphenation{}
 
 % CUSTOM UNITS
 \sisetup{locale = DE}
+% \DeclareSIUnit \fps {fps}   % a custom unit (usage: \fps{25})
+
+% use a) ABBREVIATIONS
+% \nomenclature[UDP]{UDP}{User Datagram Protocol}
+\makenomenclature
+
+% or b) GLOSSARY AND ACRONYMS
+% \newglossaryentry{CBC}{name=CBC, description={Cipher Block Chaining. Betriebsart des symmetrischen Kryptografie-Algorithmus AES}}
+% \newacronym{iot}{IoT}{Internet of Things}
+% \newacronym[see={[Glossary:]{ota_long}}]{ota}{OTA}{Over the Air\glsadd{ota_long}}
+\makeglossaries
 
 
 %--------------------------------------------------------------------
@@ -125,13 +143,12 @@
 
 \begin{frame}[fragile]{Version Info}
   These slides look different in any beamer version after beamer.r43073.
-  I don't know, why, but in beamer.r43073 and older (which are installed at Overleaf) the footer section behaves differently than in the newer versions of beamer.
-  Currently the old version will produce the correct output.
+  I don't know why, but in beamer.r43073 and older the footer section behaves differently than in the newer versions of beamer.
+  Currently the old version will produce the correct output to remain compatibility with Overleaf
 \end{frame}
 
 \begin{frame}[allowframebreaks]{References}
-  \bibliography{bibliography}
-  \bibliographystyle{alpha}
+  \printbibliography
 \end{frame}
 
 \end{document}

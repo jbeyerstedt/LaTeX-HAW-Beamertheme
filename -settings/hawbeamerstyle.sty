@@ -9,25 +9,37 @@
 \ProvidesPackage{-settings/hawbeamerstyle}
 
 \RequirePackage[utf8]{inputenc}     % Universal encoding
-\RequirePackage[ngerman]{babel}     % New german language
-\RequirePackage[T1]{fontenc}
 
-%\RequirePackage[default,osfigures,scale=0.95]{opensans} % font: open sans
+\RequirePackage[ngerman]{babel}     % German translation
+\RequirePackage[T1]{fontenc}        % Font encoding
+% \RequirePackage[default,osfigures,scale=0.95]{opensans} % font: open sans
 \RequirePackage[default]{lato}
 \RequirePackage{courier}            % Courier as \ttdefault
 
 \RequirePackage{graphicx}           % Include graphics to document
-\RequirePackage{url}                % Line break support in URL
-\RequirePackage[numbers]{natbib}    % More citation styles
-\RequirePackage{bibgerm}            % Bibliopgraphy: german
-\RequirePackage[autostyle=true,german=quotes]{csquotes}
+% \RequirePackage[hyphens]{url}       % Line break support in URL: does not work "option clash"
+\RequirePackage{url}
+\RequirePackage[htt]{hyphenat}      % hyphenation in texttt
+\RequirePackage{siunitx}            % SI-Unit support
+\RequirePackage[autostyle=true,german=quotes]{csquotes} % german quotes with \enquote{}
 
 \RequirePackage{listings}           % Code listings
+\RequirePackage{scrhack}            % Fix KOMA-Script issues with listings
 \RequirePackage{xcolor}             % Colored text
 
-\RequirePackage{amsmath}            % Math
+\RequirePackage{enumitem}           % Easier and more powerul enumerations
+
+\RequirePackage[intoc,german,prefix]{nomencl}   % Abbreviations with \nomenclature
+\setlength{\nomitemsep}{-\parsep}               % Smaller space between entries
+\RequirePackage[toc,acronym]{glossaries}        % Glossary and list of acronyms
+
+\RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
-\RequirePackage{siunitx}            % SI-Unit support
+
+\RequirePackage{graphicx}           % Include graphics to document
+\RequirePackage{subcaption}         % Multiple pictures next to each other
+
+\RequirePackage[style=alphabetic]{biblatex}
 
 \parindent0pt                       % First line starts imediately

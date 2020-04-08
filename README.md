@@ -1,6 +1,6 @@
 # LaTeX-HAW-Beamertheme
 Author: Jannik Beyerstedt  
-**License**: MIT
+**License**: CC BY-SA 4.0
 
 
 This is an example for LaTeX Beamer presentations inspired by the 2017 Corporate Design of the Hochschule für Angewandte Wissenschaften Hamburg (HAW Hamburg).
